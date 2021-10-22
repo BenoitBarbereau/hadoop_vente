@@ -1,39 +1,43 @@
 import sys
 
-def reducer():
-    tabF=[]
-    Nclé = None
+condition = sys.argv[1].upper()
+
+if condition == "REGION" or condition == "PAYS" or condition == "ITEM" :
+    Ncle = None
     val0 = 0
+
     for line in sys.stdin :
-        clé, val = line.split({' : '})
-        if clé != Nclé and Nclé != None:
-            print({Nclé}+' : ' + {val0})
+        cle, val = line.split('\t', 1) 
+        if cle != Ncle and Ncle != None:
+            print(f'{Ncle}\t{val0}')
             val0 = 0
-        Nclé = clé
+        Ncle = cle
         try :
             val0 += float(val.strip())
         except :
             pass
-    print({Nclé}+' : ' + {val0})
+    print(f'{Ncle}\t{val0}')
 
 
-    tabF=[]
-    Nclé = None
+elif condition == "VENTE":
+    Ncle = None
     val0 = 0
     cont = 0
+
     for line in sys.stdin :
-        clé, val = line.split({' : '})
-        if clé != Nclé and Nclé != None:
-            print({Nclé}+' : ' + {val0} +' : '+{cont})
+        cle, val = line.split('\t', 1) 
+
+        if cle != Ncle and Ncle != None:
+            print(f'{Ncle}\t{val0}\t{cont}')
             val0 = 0
-            cont =0
+            cont = 0
+
         cont += 1
-        Nclé = clé
+        Ncle = cle
+
         try :
             val0 += float(val.strip())
         except :
             pass
-    print({Nclé}+' : ' + {val0}+' : '+{cont})
 
-if __name__ == "__main__":
-    reducer()
+    print(f'{Ncle}\t{val0}\t{cont}')
