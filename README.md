@@ -18,6 +18,9 @@ chmod 777 reducer_analyse_finance.py
 ```
 
 
+```
+chmod 777 mapper_analyse_finance.py
+```
 
 
 ● Obtenir le profit total obtenu par région du monde.
